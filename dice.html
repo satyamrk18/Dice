@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      .container {
+        border: 2px solid black;
+        display: block;
+        margin: 50px auto;
+        height: 500px;
+        width: 500px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px gray;
+      }
+      h1 {
+        text-align: center;
+      }
+      .dice {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        margin: 0 0 auto;
+        margin-top: 50px;
+      }
+      .dice img {
+        height: 200px;
+        width: 200px;
+      }
+      .roll {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 auto;
+        margin-top: 40px;
+      }
+      #roll {
+        height: 50px;
+        width: 100px;
+        border: 3px solid black;
+        background-color: red;
+        border-radius: 5px;
+        font-size: 20px;
+        color: white;
+        font-weight: 800;
+        transform: 0.9s background-color;
+        cursor: pointer;
+      }
+      #roll:active {
+        transform: 0.9s background-color;
+        color: black;
+      }
+      @keyframes rotate360 {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .rotating {
+        animation: rotate360 0.3s linear;
+      }
+
+      .total {
+        height: 40px;
+        width: 150px;
+        border: 2px solid black;
+        text-align: start;
+        padding-top: 5px;
+        display: block;
+        margin: 10px auto;
+        border-radius: 5px;
+        background-color: antiquewhite;
+      }
+      span {
+        font-size: 20px;
+        padding: 20px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dice Roller</h1>
+      <div class="dice">
+        <img src="3D-dice.png" alt="3D-dice" id="dice-img" />
+      </div>
+      <div class="roll">
+        <button id="roll" onclick="roll()">Roll</button>
+      </div>
+      <div class="total">
+        <span id="total">Total = </span>
+      </div>
+    </div>
+    <script>
+      function roll() {
+        const result = document.getElementById("total");
+        const dice = document.getElementById("dice-img");
+        const min = 1;
+        const max = 6;
+        const random = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(random);
+        if (random === 1) {
+          dice.src = "dice-1.png";
+          result.innerText = `Total =  ${random}`;
+        } else if (random === 2) {
+          dice.src = "dice-2.png";
+          result.innerText = `Total =  ${random}`;
+        } else if (random === 3) {
+          dice.src = `dice-3.png`;
+          result.innerText = `Total =  ${random}`;
+        } else if (random === 4) {
+          dice.src = "dice-4.png";
+          result.innerText = `Total =  ${random}`;
+        } else if (random === 5) {
+          dice.src = `dice-5.png`;
+          result.innerText = `Total =  ${random}`;
+        } else if (random === 6) {
+          dice.src = `dice-6.png`;
+          result.innerText = `Total =  ${random}`;
+        }
+        //to roll the dice image
+        dice.classList.remove("rotating");
+        void dice.offsetWidth;//to stop the roatation
+        dice.classList.add("rotating");
+      }
+    </script>
+  </body>
+</html>

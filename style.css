@@ -1,0 +1,78 @@
+* {
+    font-family: sans-serif;
+  }
+  .container {
+    border: 2px solid black;
+    display: block;
+    margin: 50px auto;
+    height: 500px;
+    width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px gray;
+  }
+  h1 {
+    text-align: center;
+  }
+  .dice {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    margin: 0 0 auto;
+    margin-top: 50px;
+  }
+  .dice img {
+    height: 200px;
+    width: 200px;
+  }
+  .roll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 auto;
+    margin-top: 40px;
+  }
+  #roll {
+    height: 50px;
+    width: 100px;
+    border: 3px solid black;
+    background-color: red;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+    transform: 0.9s background-color;
+    cursor: pointer;
+  }
+  #roll:active {
+    transform: 0.9s background-color;
+    color: black;
+  }
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotating {
+    animation: rotate360 0.3s linear;
+  }
+
+  .total {
+    height: 40px;
+    width: 150px;
+    border: 2px solid black;
+    text-align: start;
+    padding-top: 5px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: antiquewhite;
+  }
+  span {
+    font-size: 20px;
+    padding: 20px;
+    font-weight: 600;
+  }
